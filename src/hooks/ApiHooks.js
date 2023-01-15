@@ -5,7 +5,7 @@ const doFetchXml = async (url, options = {}) => {
     const response = await fetch(url, options);
     const xml = await response.text();
 
-    console.log("text is", xml);
+    // console.log("text is", xml);
     if (response.ok) {
       return new DOMParser().parseFromString(xml, "text/xml");
     } else {
