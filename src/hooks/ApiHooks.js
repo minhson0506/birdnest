@@ -4,8 +4,7 @@ const doFetchXml = async (url, options = {}) => {
   try {
     const response = await fetch(url, options);
     const xml = await response.text();
-
-    // console.log("text is", xml);
+    console.log('response is ',response)
     if (response.ok) {
       return new DOMParser().parseFromString(xml, "text/xml");
     } else {
@@ -27,8 +26,8 @@ const useDrone = () => {
         "Content-Type": "application/xml; charset=utf-8",
       },
     };
-    // return await doFetchXml(baseUrl + "drones", options);
-    return await doFetchXml("/drones", options);
+    return await doFetchXml(baseUrl + "drones", options);
+    // return await doFetchXml("/drones", options);
   };
 
   return { getDrones };
@@ -62,8 +61,9 @@ const usePilot = () => {
         "Content-Type": "application/json; charset=utf-8",
       },
     };
-    // return await doFetchJson(baseUrl + "pilots/" + serialNumber, options);
-    return await doFetchJson("pilots/" + serialNumber, options);
+
+    return await doFetchJson(baseUrl + "pilots/" + serialNumber, options);
+    // return await doFetchJson("pilots/" + serialNumber, options);
   };
 
   return { getPilot };

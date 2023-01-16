@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { useDrone, usePilot } from "./hooks/ApiHooks";
@@ -21,10 +20,9 @@ const App = () => {
           .getElementsByTagName("capture")[0]
           .getAttribute("snapshotTimestamp")
       );
-      console.log("time", time);
 
+      // get drones data
       const dronesXml = response.getElementsByTagName("drone");
-      // console.log("drone is ", dronesXml.length);
 
       let drones = pilots;
       for (let i = 0; i < dronesXml.length; i++) {
@@ -47,8 +45,6 @@ const App = () => {
         // get pilot informatuion by using serial
         const pilotInfo = await getPilot(serial);
 
-        // console.log("pilot info", pilotInfo);
-
         if (pilotInfo) {
           const pilotEmails = drones.map((obj) => obj.pilotEmail);
 
@@ -59,8 +55,8 @@ const App = () => {
               pilotName: pilotInfo.firstName + " " + pilotInfo.lastName,
               pilotEmail: pilotInfo.email,
               pilotPhone: pilotInfo.phoneNumber,
-              distance: Number(distance.toFixed(1)),
-              currentDistance: Number(distance.toFixed(1)),
+              distance: Number(distance.toFixed(0)) / 1000,
+              currentDistance: Number(distance.toFixed(0)) / 1000,
               time: time,
             });
           } else {
@@ -68,21 +64,20 @@ const App = () => {
             const index = drones.findIndex(
               (object) => object.pilotEmail === pilotInfo.email
             );
-            if (drones[index].distance > Number(distance.toFixed(1))) {
-              drones[index].distance = Number(distance.toFixed(1));
+            if (drones[index].distance > Number(distance.toFixed(0)) / 1000) {
+              drones[index].distance = Number(distance.toFixed(0)) / 1000;
             }
-            drones[index].currentDistance = Number(distance.toFixed(1));
+            drones[index].currentDistance = Number(distance.toFixed(0)) / 1000;
             drones[index].time = time;
           }
         }
       }
 
-      // remove pilot existed from more than 10 min
+      // remove pilot existed from more than 10 min ~ 600.000ms
       drones = drones.filter((obj) => new Date() - obj.time < 600000);
 
       // set data for displaying
       setPilots(drones);
-      // console.log("update pilot", pilots);
     }
   };
 
@@ -94,13 +89,12 @@ const App = () => {
     }, 2000);
 
     return () => clearInterval(interval);
-    // eslint-disable-next-line
   }, []);
 
   return (
     // display list of pilot
     <div>
-      <h3>Pilots near the birdnest within 500m</h3>
+      <h1>Pilots near the birdnest within 100m</h1>
       <table>
         <thead>
           <tr>
@@ -114,8 +108,9 @@ const App = () => {
         </thead>
         {pilots.length > 0 ? (
           <tbody>
-            {pilots &&
-              pilots.filter(pilot => (pilot.distance <= 100000)).map((pilot, index) => (
+            {pilots
+              .filter((pilot) => pilot.distance <= 100)
+              .map((pilot, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{pilot.pilotName}</td>
