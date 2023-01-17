@@ -21,6 +21,7 @@ const useDrones = async () => {
       "Content-Type": "application/xml; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
     },
+    mode: "cors",
   };
   return await doFetch(baseUrl + "drones", options, "xml");
 };
@@ -32,6 +33,7 @@ const usePilot = async (serialNumber) => {
       "Content-Type": "application/json; charset=utf-8",
       "Access-Control-Allow-Origin": "*",
     },
+    mode: "cors",
   };
 
   return await doFetch(baseUrl + "pilots/" + serialNumber, options, "json");
