@@ -19,6 +19,7 @@ const useDrones = async () => {
   const options = {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
     },
   };
   return await doFetch(baseUrl + "drones", options, "xml");
@@ -29,6 +30,7 @@ const usePilot = async (serialNumber) => {
   const options = {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
     },
   };
 
