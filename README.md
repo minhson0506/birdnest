@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+#Birdnest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A rare and endangered Monadikuikka has been spotted nesting at a local lake.
 
-## Available Scripts
+Unfortunately some enthusiasts have been a little too curious about this elusive bird species, flying their drones very close to the nest for rare photos and bothering the birds in the process.
 
-In the project directory, you can run:
+<p align="center">
+<img src="https://user-images.githubusercontent.com/73076333/212985229-8d20afb9-cc2f-426b-83bc-a7f9fd2202fd.jpg" width="500"> 
+</p>
 
-### `npm start`
+To preserve the nesting peace, authorities have declared the area within 100 meters of the nest a no drone zone (NDZ), but suspect some pilots may still be violating this rule.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The authorities have set up drone monitoring equipment to capture the identifying information broadcasted by the drones in the area, and have given you access to a national drone pilot registry. They now need your help in tracking violations and getting in touch with the offenders.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p align="center">
+<img src="https://user-images.githubusercontent.com/73076333/212985400-dc97bee7-f308-49d3-a8df-a699a0df5367.jpg" width="500"> 
+</p>
 
-### `npm test`
+The application will show the pilot with conditions:
+<ul>
+  <li> Persist the pilot information for 10 minutes since their drone was last seen by the equipment
+  <li> Display the closest confirmed distance to the nest
+  <li> Contain the pilot name, email address and phone number
+  <li> Immediately show the information from the last 10 minutes to anyone opening the application
+  <li> Not require the user to manually refresh the view to see up-to-date information
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Stack: React Javascript
 
-### `npm run build`
+# Result: 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/73076333/213008744-2372804b-25f4-41d3-9cf3-58e75d74cfb8.png"> 
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Installation in local
+1. Clone birdnest repo to local:
+```
+$ git clone git@github.com:minhson0506/birdnest.git
+```
+2. Install dependencies in `birdnest` folder:
+```
+$ cd birdnest
+$ npm i
+```
+3. Change variables for running in local:
+<ul>
+  <li> In file utils/variables.js: comment line 2 (const baseUrl = "http://assignments.reaktor.com/birdnest/";)  and uncomment line 5 (const baseUrl = "";)
+  <li> In file package.json: add line 
+    
+    "proxy": "http://assignments.reaktor.com/birdnest/",
+</ul>
+4. Build the application:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+$ npm start
+```
