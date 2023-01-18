@@ -27,6 +27,9 @@ The application will show the pilot with conditions:
 
 # Stack: React Javascript
 
+# Link: React Javascript
+https://birdnest-reacktor.netlify.app/
+
 # Result: 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/73076333/213008744-2372804b-25f4-41d3-9cf3-58e75d74cfb8.png"> 
@@ -42,14 +45,7 @@ $ git clone git@github.com:minhson0506/birdnest.git
 $ cd birdnest
 $ npm i
 ```
-3. Change variables for running in local:
-<ul>
-  <li> In file utils/variables.js: comment line 2 (const baseUrl = "http://assignments.reaktor.com/birdnest/";)  and uncomment line 5 (const baseUrl = "";)
-  <li> In file package.json: add line 
-    
-    "proxy": "http://assignments.reaktor.com/birdnest/",
-</ul>
-4. Build the application:
+3. Build the application:
 
 ```
 $ npm start
