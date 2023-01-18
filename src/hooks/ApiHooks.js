@@ -22,7 +22,8 @@ const useDrones = async () => {
     },
     mode: "cors",
   };
-  return await doFetch(baseUrl + "drones", options, "xml");
+  const url = "https://corsproxy.io/?" + encodeURIComponent(baseUrl + "drones");
+  return await doFetch(url, options, "xml");
 };
 
 // get pilot data
@@ -33,8 +34,11 @@ const usePilot = async (serialNumber) => {
     },
     mode: "cors",
   };
+  const url =
+    "https://corsproxy.io/?" +
+    encodeURIComponent(baseUrl + "pilots/" + serialNumber);
 
-  return await doFetch(baseUrl + "pilots/" + serialNumber, options, "json");
+  return await doFetch(url, options, "json");
 };
 
 export { useDrones, usePilot };
