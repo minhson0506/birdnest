@@ -1,5 +1,5 @@
 import React from "react";
-import { MainProvider } from './context/MainContext';
+import { MainProvider } from "./context/MainContext";
 import Table from "./component/Table";
 
 const App = () => {

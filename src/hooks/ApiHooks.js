@@ -19,9 +19,6 @@ const useDrones = async () => {
   const options = {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET",
-      "Access-Control-Allow-Credentials": true,
     },
     mode: "cors",
   };
@@ -33,9 +30,6 @@ const usePilot = async (serialNumber) => {
   const options = {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET",
-      "Access-Control-Allow-Credentials": true,
     },
     mode: "cors",
   };

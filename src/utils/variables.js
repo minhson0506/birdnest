@@ -1,7 +1,4 @@
-// baseUrl when deploy to the web
-const baseUrl = "https://assignments.reaktor.com/birdnest/";
-
-// baseUrl change to null for running in local
-// const baseUrl = "";
+const baseUrl =
+  "https://cors-bypasser.glitch.me/bypass/https://assignments.reaktor.com/birdnest/";
 
 export { baseUrl };
