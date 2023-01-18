@@ -27,7 +27,7 @@ The application will show the pilot with conditions:
 
 # Stack: React Javascript
 
-# Link: React Javascript
+# Link:
 https://birdnest-reacktor.netlify.app/
 
 # Result: 
